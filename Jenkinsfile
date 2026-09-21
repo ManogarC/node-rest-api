@@ -30,8 +30,6 @@ pipeline {
         stage('Deploy Container') {
             steps {
                 bat '''
-                docker stop node-rest-api-container || exit 0
-                docker rm node-rest-api-container || exit 0
                 docker run -d -p 8090:3000 --name node-rest-api-container node-rest-api
                 '''
             }
